@@ -54,4 +54,4 @@ usuario.addBook("Harry Potter y la Orden del Fénix", "J. K. Rowling");
 usuario.addBook("La Meta", "Eliyahu M. Goldratt");
 
 //Por consola, mostramos el resultado de getBookNames
-console.log("usuario.getBookNames() = ", usuario.getBookNames());f
+console.log("usuario.getBookNames() = ", usuario.getBookNames());
