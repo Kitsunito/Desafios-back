@@ -1,1 +1,1 @@
-{"maxID":3,"data":[{title":"Martillo","price":300,"thumbnail":"./img/martillo.png","id":1},{"title":"Clavos","price":50,"thumbnail":"./img/clavos.png","id":2},{"title":"Serrucho","price":400,"thumbnail":"./img/serrucho.png","id":3}]}
+{"maxID":3,"data":[{"title":"Martillo","price":300,"thumbnail":"./img/martillo.png","id":1},{"title":"Serrucho","price":300,"thumbnail":"./img/serucho.png","id":2},{"title":"Clavos","price":50,"thumbnail":"./img/clavos.png","id":3}]}
