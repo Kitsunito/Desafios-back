@@ -1,0 +1,19 @@
+{
+  "name": "desafios-back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./Desafio2/Desafio2.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kitsunito/Desafios-back.git"
+  },
+  "author": "Kitsunee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kitsunito/Desafios-back/issues"
+  },
+  "homepage": "https://github.com/Kitsunito/Desafios-back#readme"
+}
