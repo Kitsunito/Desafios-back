@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Kitsunito/Desafios-back/issues"
   },
-  "homepage": "https://github.com/Kitsunito/Desafios-back#readme"
+  "homepage": "https://github.com/Kitsunito/Desafios-back#readme",
+  "dependencies": {
+    "nodemon": "^2.0.16"
+  }
 }
