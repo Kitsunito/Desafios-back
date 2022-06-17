@@ -19,7 +19,7 @@ class Contenedor {
                         const data = [];
                         const maxId = 0;
                         const contenido = {maxID: maxId, data: data}
-                        await fs.promises.writeFile(`./Desafio2/${this.fileName}`,JSON.stringify(contenido));
+                        await fs.promises.writeFile(`./Desafio3/${this.fileName}`,JSON.stringify(contenido));
                         console.log("El archivo estaba corrupto, se ha creado de nuevo.")
                     } 
                 })
@@ -27,7 +27,7 @@ class Contenedor {
                     const data = [];
                     const maxId = 0;
                     const contenido = {maxID: maxId, data: data}
-                    await fs.promises.writeFile(`./Desafio2/${this.fileName}`,JSON.stringify(contenido));
+                    await fs.promises.writeFile(`./Desafio3/${this.fileName}`,JSON.stringify(contenido));
                     console.log(`Se produjo el error ${error}. Se ha creado el archivo ${this.fileName}.`)
                 });          
         })();
@@ -39,12 +39,12 @@ class Contenedor {
             //Buscamos el contenido almacenado en el archivo, validamos el máximo id generado al momento
             //generamos un nuevo ID, actualizamos el contenido y escribimos el archivo de nuevo con este contenido
             //finalmente, devolvemos el ID que se generó.
-            let contenido =  JSON.parse(await fs.promises.readFile(`./Desafio2/${this.fileName}`,'utf-8'));
+            let contenido =  JSON.parse(await fs.promises.readFile(`./Desafio3/${this.fileName}`,'utf-8'));
             const newID = contenido.maxID + 1;
             object.id = newID;
             contenido.maxID = newID;
             contenido.data = [...contenido.data, object];
-            await fs.promises.writeFile(`./Desafio2/${this.fileName}`,JSON.stringify(contenido));
+            await fs.promises.writeFile(`./Desafio3/${this.fileName}`,JSON.stringify(contenido));
             return newID;
         } catch (error) {
             console.log(`Error al guardar: ${error}`);
@@ -76,7 +76,7 @@ class Contenedor {
     //Método para devolver un elemento aleatorio de los que están disponibles
     async getRandomProduct() {
         try {
-            let contenido =  JSON.parse(await fs.promises.readFile(`./Desafio2/${this.fileName}`,'utf-8'));
+            let contenido =  JSON.parse(await fs.promises.readFile(`./Desafio3/${this.fileName}`,'utf-8'));
             return contenido.data[Math.floor(Math.random()*contenido.data.length)];
 
         } catch (error) {
@@ -88,7 +88,7 @@ class Contenedor {
     //Método para devolver todos los datos almacenados
     async getAll () {
         try {
-            const contenido =  JSON.parse(await fs.promises.readFile(`./Desafio2/${this.fileName}`,'utf-8'));
+            const contenido =  JSON.parse(await fs.promises.readFile(`./Desafio3/${this.fileName}`,'utf-8'));
             //Recorremos el array para identificar el objeto a devolver, en caso negativo, devolvemos null
             return contenido.data;
         } catch (error) {
@@ -99,7 +99,7 @@ class Contenedor {
     //Método para borrar un elemento según su ID
     async deleteById(id) {
         try {
-            let contenido =  JSON.parse(await fs.promises.readFile(`./Desafio2/${this.fileName}`,'utf-8'));
+            let contenido =  JSON.parse(await fs.promises.readFile(`./Desafio3/${this.fileName}`,'utf-8'));
             //Validamos que el id esté dentro de uno de los ID posibles para evitar recorrer un array
             //de forma innecesaria
             if (id <= contenido.maxID && id > 0){
@@ -109,7 +109,7 @@ class Contenedor {
                 // y subimos el contenido de nuevo al archivo sin este elemento.
                 if (index !== -1){
                     contenido.data.splice(index,1);
-                    await fs.promises.writeFile(`./Desafio2/${this.fileName}`,JSON.stringify(contenido));
+                    await fs.promises.writeFile(`./Desafio3/${this.fileName}`,JSON.stringify(contenido));
                     console.log(`Se borró el elemento id = ${id} exitosamente.`);
                 } else {
                     console.log(`No se encontró el elemento id = ${id}.`)
@@ -127,9 +127,9 @@ class Contenedor {
     //no implica reiniciar la base de datos, por lo que el id máximo generado se mantendrá.
     async deteleAll(id) {
         try {
-            let contenido =  JSON.parse(await fs.promises.readFile(`./Desafio2/${this.fileName}`,'utf-8'));
+            let contenido =  JSON.parse(await fs.promises.readFile(`./Desafio3/${this.fileName}`,'utf-8'));
             contenido.data = [];
-            await fs.promises.writeFile(`./Desafio2/${this.fileName}`,JSON.stringify(contenido));
+            await fs.promises.writeFile(`./Desafio3/${this.fileName}`,JSON.stringify(contenido));
             console.log(`Se borraron todos los objetos presentes en el archivo.`);
             
         } catch (error) {
