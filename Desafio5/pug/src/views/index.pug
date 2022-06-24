@@ -1,0 +1,18 @@
+extends header.pug
+
+block index
+        main 
+            section 
+            form(action="/", method="post" enctype="application/x-www-form-urlencoded") 
+                h2 Ingrese el producto
+                div
+                    label(for="name") Título
+                    input(type="text" name="name" id="name")
+                div
+                    label(for="price") Precio
+                    input(type="Number" name="price" id="price")
+                    <div>
+                    label(for="thumbnail") Imagen
+                    input(type="text" name="thumbnail" id="thumbnail")
+                div
+                    input(type="submit" value="Enviar")

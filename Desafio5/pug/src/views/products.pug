@@ -1,0 +1,20 @@
+extends header.pug
+
+block productsList
+
+    if productos.length
+        div
+            table(align="center")
+                thead
+                    tr 
+                        th Título
+                        th Precio 
+                        th Imagen 
+                each producto in productos
+                    tr 
+                        td= `${producto.name}`
+                        td= `$ ${producto.price}`
+                        td
+                            img(alt=`imagen ${producto.name}` src=`${producto.thumbnail}` width="150px" height="150px")
+    else
+        p No hay productos cargados
