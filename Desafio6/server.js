@@ -2,6 +2,7 @@ const express = require('express');
 const {engine} = require('express-handlebars');
 const routes = require('./src/routes');
 const path = require('path');
+const { urlencoded } = require('express');
 const app = express();
 const port = 8080;
 
@@ -10,8 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/',routes);
 
-
-//Seteamos handlebars
+//Handlebars template
 app.engine('hbs', engine({
     extname: '.hbs',
     defaultLayout: path.join(__dirname, './src/views/layout/main.hbs'),
@@ -21,8 +21,7 @@ app.engine('hbs', engine({
 app.set('views', path.join(__dirname, './src/views'));
 app.set('view engine', 'hbs');
 
-
-//Configuramos el puerto a escuchar por el servidor
+//Seteamos el server para que escuche el puerto definido antes
 app.listen(port, (error) => {
     if (error)
         console.warn(`Error: ${error}`);

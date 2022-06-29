@@ -4,7 +4,7 @@
   "description": "Entregas de desafíos para el curso de backend de Coderhouse",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon ./Desafio5/ejs/server.js"
+    "start": "nodemon ./Desafio6/server.js"
   },
   "repository": {
     "type": "git",
