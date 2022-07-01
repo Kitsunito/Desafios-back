@@ -32,7 +32,7 @@ const renderProducts = async products => {
 
 //Event Listeners
 const submitProductHandler = e => {
-    e.preventDefault();
+    //e.preventDefault();
 
     const title = nameInput.value;
     const price = priceInput.value;

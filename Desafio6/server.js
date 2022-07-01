@@ -6,6 +6,8 @@ const { Server: IOServer } = require('socket.io');
 const app = express();
 const port = 8080;
 const Api = require('./src/api');
+const Messages = require('./src/clases/Messages');
+const messages = new Messages('chatLog.txt');
 
 //Middlewares
 app.use(express.json());
