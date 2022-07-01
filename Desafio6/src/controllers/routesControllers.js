@@ -11,17 +11,12 @@ const routeHome = (req, res) => {
     }
 }
 
-// Listado de productos
-const routeProducts = (req, res) => { 
-    const productos = api.getProducts();
-    res.render('products.hbs', {productos} )
-}
+
 
 //Sumar producto
 const routePostProducts = (req, res) => {
     try {
         api.save(req.body);
-        res.redirect('/');
         res.status(201).render;
     } catch (error) {
         console.log(`Se produjo un error: ${error}`);
@@ -31,5 +26,5 @@ const routePostProducts = (req, res) => {
 }
 
 module.exports = {
-    routeHome, routeProducts,  routePostProducts,
+    routeHome, routePostProducts,
 }
