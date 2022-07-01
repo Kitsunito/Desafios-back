@@ -62,11 +62,27 @@ main {
 
 /*Chat Section*/
 
-.chat-line {
+.chatLine {
+    display: flex;
+    flex-direction: column;
+}
+
+.chatHead{
     display: flex;
     flex-direction: row;
 }
 
-.chat-line div {
-    display: flex !important;
+.chatUser{
+    font-weight: bold;
+    color: blue;
+}
+
+.chatTime{
+    color: brown;
+    margin-left: 2px;
+}
+
+.chatMessage{
+    color: green;
+    font-style: italic;
 }

@@ -53,6 +53,6 @@ io.on('connection', async (socket) => {
 
     socket.on('client:message', async message => {
         await messages.save(message);
-        io.emit('server:products', await messages.getAll());
+        io.emit('server:messages', await messages.getAll());
     });
 })

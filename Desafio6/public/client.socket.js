@@ -35,7 +35,6 @@ const renderProducts = async products => {
 }
 
 const renderChat = async messages => {
-    console.log("Mensajes", messages);
     const hbsTemplate = await fetch('./hbs/chatLog.hbs');
     const plantilla = await hbsTemplate.text();
 
@@ -54,14 +53,13 @@ const renderChat = async messages => {
 
 //Event Listeners
 const submitProductHandler = e => {
-    //e.preventDefault();
+    e.preventDefault();
 
     const title = nameInput.value;
     const price = priceInput.value;
     const thumbnail = thumbnailInput.value;
 
     socket.emit('client:product',{title, price, thumbnail});
-
 }
 
 const submitMessageHandler = e => {
