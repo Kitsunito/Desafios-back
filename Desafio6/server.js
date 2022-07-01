@@ -35,17 +35,24 @@ const expressServer = app.listen(port, (error) => {
 
 //Websocket
 const api = new Api();
-console.log(api);
 const io = new IOServer(expressServer);
 io.on('connection', async (socket) => {
 
     console.info(`Nueva conexión: ${socket.id}`)
 
+    //Products
     io.emit('server:products', api.products);
 
     socket.on('client:product', async product => {
         api.save(product);
-        console.log(api.products);
         io.emit('server:products', api.products);
+    });
+
+    //Chat
+    io.emit('server:messages', await messages.getAll());
+
+    socket.on('client:message', async message => {
+        await messages.save(message);
+        io.emit('server:products', await messages.getAll());
     });
 })

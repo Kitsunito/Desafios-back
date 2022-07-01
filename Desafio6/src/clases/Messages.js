@@ -12,8 +12,7 @@ class Messages {
                     //Si no encontramos el maxID, consideramos el archivo corrupto y lo formateamos de nuevo
                 })
                 .catch(async (error) => {
-
-                    const content = {}
+                    const content = []
                     await fs.promises.writeFile(`./Desafio6/${this.fileName}`,JSON.stringify(content));
                     console.log(`Se produjo el error ${error}. Se ha creado el archivo ${this.fileName}.`)
                 });          
@@ -24,7 +23,8 @@ class Messages {
     async save(message) {
         try {
             //Buscamos el contenido almacenado en el archivo y escribimos el archivo de nuevo con este contenido
-            let contenido =  JSON.parse(await fs.promises.readFile(`./Desafio6/${this.fileName}`,'utf-8'));
+            let contenido = [];
+            contenido =  JSON.parse(await fs.promises.readFile(`./Desafio6/${this.fileName}`,'utf-8'));
             contenido = [...contenido, message];
             await fs.promises.writeFile(`./Desafio6/${this.fileName}`,JSON.stringify(contenido));
         } catch (error) {

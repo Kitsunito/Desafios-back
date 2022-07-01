@@ -6,6 +6,11 @@
     --background: #F5F5F5;
 }
 
+* {
+    margin: 0; 
+    padding: 0;
+}
+
 /*Encabezado*/
 nav {
     height: 10vh;
@@ -19,7 +24,6 @@ nav {
 /*Cuerpo*/
 main {
     background-color: var(--background);
-    height: 90vh;
 }
 
 
@@ -54,4 +58,15 @@ main {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
+}
+
+/*Chat Section*/
+
+.chat-line {
+    display: flex;
+    flex-direction: row;
+}
+
+.chat-line div {
+    display: flex !important;
 }
