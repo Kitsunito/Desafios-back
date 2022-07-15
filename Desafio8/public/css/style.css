@@ -1,0 +1,88 @@
+:root{
+    --highlighted: #125389;
+    --primary: #4D4D4D; 
+    --secondary: #F0F0F0; 
+    --tertiary: #393939; 
+    --background: #F5F5F5;
+}
+
+* {
+    margin: 0; 
+    padding: 0;
+}
+
+/*Encabezado*/
+nav {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--tertiary);
+}
+
+
+/*Cuerpo*/
+main {
+    background-color: var(--background);
+}
+
+
+
+/*--Sección productos--*/
+.product-section {
+    padding-top: 20px;
+}
+.product-form {
+    padding: 0 20px 10px 20px;
+    background-color: rgba(64,64,64,0.2);
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    margin: 3px;
+    background-color: rgba(64,64,64,0.2) !important;
+}
+
+.form-control label {
+    color: var(--tertiary)
+}
+
+.form-button-div {
+    display: flex;
+    justify-content: center;
+}
+
+.product-section article {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/*Chat Section*/
+
+.chatLine {
+    display: flex;
+    flex-direction: column;
+}
+
+.chatHead{
+    display: flex;
+    flex-direction: row;
+}
+
+.chatUser{
+    font-weight: bold;
+    color: blue;
+}
+
+.chatTime{
+    color: brown;
+    margin-left: 2px;
+}
+
+.chatMessage{
+    color: green;
+    font-style: italic;
+}

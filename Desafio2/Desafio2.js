@@ -69,7 +69,6 @@ class Contenedor {
             console.log(`Error al buscar el elemento id ${id}: ${error}`);
             return null;
         }
-        
     }
 
     //Método para devolver todos los datos almacenados

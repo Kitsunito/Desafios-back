@@ -1,0 +1,46 @@
+<main>
+    <section class="container-sm product-section">
+        <h2>Productos</h2>
+        <form class="product-form" id="productForm"
+            enctype="application/x-www-form-urlencoded">
+            <h3>Alta de productos</h3>
+            <div class="form-control">
+                <label for="name">Título</label>
+                <input type="text" name="name" id="name">
+            </div>
+            <div class="form-control">
+                <label for="price">Precio</label>
+                <input type="Number" name="price" id="price">
+            </div>
+            <div class="form-control">
+                <label for="thumbnail">Imagen</label>
+                <input type="text" name="thumbnail" id="thumbnail">
+            </div>
+            <div class="form-button-div">
+                <input type="submit" value="Enviar">
+            </div>
+        </form>
+        <h4>Listado</h4>
+        <article id="productsList">
+            
+        </article>
+    </section>
+    <section class="container-sm chat-section">
+        <h2>Chat</h2>
+        <div class="chat-list" id="chat-list">
+        </div>
+        <form class="chat-form" id="chat-form">
+            <div class="form-control">
+                <label for="mail">E-mail</label>
+                <input type="email" name="mail" id="mail">
+            </div>
+            <div class="form-control">
+                <textarea name="message" id="message" rows="4" placeholder="Escribe tu mensaje"></textarea>
+            </div>
+            <div class="form-button-div">
+                <input type="submit" value="Enviar">
+            </div>
+        </form>
+    </section>
+</main>
+
