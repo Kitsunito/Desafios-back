@@ -50,7 +50,7 @@ io.on('connection', async (socket) => {
     });
 
     //Chat
-    io.emit('server:messages', await messages.getAll());
+    io.emit('server:messages', await apiMessages.getAll());
 
     socket.on('client:message', async message => {
         await apiMessages.save(message);
