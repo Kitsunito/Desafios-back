@@ -49,9 +49,8 @@ io.on('connection', async (socket) => {
         io.emit('server:products', await apiProducts.getProducts());
     });
 
-    console.log(await apiMessages.getAll());
     //Chat
-    // io.emit('server:messages', await messages.getAll());
+    io.emit('server:messages', await messages.getAll());
 
     socket.on('client:message', async message => {
         await apiMessages.save(message);
