@@ -6,9 +6,8 @@ const { Server: IOServer } = require('socket.io');
 const app = express();
 const port = 8080;
 const ApiProducts = require('./src/apiProducts');
-const Messages = require('./src/apiMessages');
-const messages = new Messages('chatLog.txt');
-//const messagesDB = require("./src/db/database").sqliteConnection;
+const ApiMessages = require('./src/apiMessages');
+const messagesDB = require("./src/db/dbConnections").sqlite3Connection;
 const productsDB = require("./src/db/dbConnections").mysqlConnection;
 
 //Middlewares
@@ -35,26 +34,27 @@ const expressServer = app.listen(port, (error) => {
         console.info(`Servidor escuchando el puerto ${port}`);
 });
 
-//Websocket
-const api = new ApiProducts(productsDB, "product");
+//----Websocket----
+const apiProducts = new ApiProducts(productsDB, "product");
+const apiMessages = new ApiMessages(messagesDB, "chat");
 const io = new IOServer(expressServer);
 io.on('connection', async (socket) => {
 
     console.info(`Nueva conexión: ${socket.id}`)
 
     //Products
-    io.emit('server:products', api.getProducts());
-
+    io.emit('server:products', await apiProducts.getProducts());
     socket.on('client:product', async product => {
-        api.save(product);
-        io.emit('server:products', api.getProducts());
+        await apiProducts.save(product);
+        io.emit('server:products', await apiProducts.getProducts());
     });
 
+    console.log(await apiMessages.getAll());
     //Chat
-    io.emit('server:messages', await messages.getAll());
+    // io.emit('server:messages', await messages.getAll());
 
     socket.on('client:message', async message => {
-        await messages.save(message);
-        io.emit('server:messages', await messages.getAll());
+        await apiMessages.save(message);
+        io.emit('server:messages', await apiMessages.getAll());
     });
 })

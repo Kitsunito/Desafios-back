@@ -16,4 +16,15 @@ const configMySQL = {
 const mysqlConnection = knex(configMySQL);
 
 
-module.exports = { mysqlConnection };
+//Conexión a SQLite3 para chats
+const configSQLite3 = {
+    client: "sqlite3",
+    connection: {filename: `${path.join(__dirname + "/chat.sqlite")}`},
+    useNullAsDefault: true
+}
+
+const sqlite3Connection = knex(configSQLite3);
+
+
+
+module.exports = { mysqlConnection,  sqlite3Connection};
